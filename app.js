@@ -5,6 +5,7 @@ const cors = require('cors');
 
 
 const rotaProdutos = require('./routes/produtos');
+const rotaPedidos = require('./routes/pedidos');
 
 app.use(morgan('dev'));
 app.use(express.json());
@@ -12,6 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use('/produtos', rotaProdutos);
+app.use('/pedidos', rotaPedidos);
 
 app.use((req, res, next) => {
     const erro = new Error('Não encontrado');
